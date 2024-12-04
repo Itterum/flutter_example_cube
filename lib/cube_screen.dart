@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:demo_move_rectangle/base_scaffold.dart';
 import 'package:demo_move_rectangle/buttons_widget.dart';
+import 'package:flutter/material.dart';
 
 class RectangleController extends StatefulWidget {
   const RectangleController({super.key});
@@ -129,24 +130,27 @@ class RectangleControllerState extends State<RectangleController> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: RectangleWidget(
-              alignment: _alignment,
+    return BaseScaffoldWidget(
+      title: 'Cube',
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: RectangleWidget(
+                alignment: _alignment,
+              ),
             ),
-          ),
-          Expanded(
-            child: Buttons(
-              onUp: _moveUp,
-              onDown: _moveDown,
-              onLeft: _moveLeft,
-              onRight: _moveRight,
+            Expanded(
+              child: Buttons(
+                onUp: _moveUp,
+                onDown: _moveDown,
+                onLeft: _moveLeft,
+                onRight: _moveRight,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
+import 'package:demo_move_rectangle/form_screen.dart';
+import 'package:demo_move_rectangle/home_screen.dart';
+import 'package:demo_move_rectangle/cube_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:demo_move_rectangle/my_home_page_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/cube': (context) => const RectangleController(),
+        '/form': (context) => const FormScreen(),
+      },
     );
   }
 }
