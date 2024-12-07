@@ -2,131 +2,139 @@ import 'package:demo_move_rectangle/base_scaffold.dart';
 import 'package:demo_move_rectangle/buttons_widget.dart';
 import 'package:flutter/material.dart';
 
-class RectangleController extends StatefulWidget {
-  const RectangleController({super.key});
+class AlignmentNotifier extends ChangeNotifier {
+  Alignment _alignment;
 
-  @override
-  RectangleControllerState createState() => RectangleControllerState();
+  AlignmentNotifier(this._alignment);
+
+  Alignment get alignment => _alignment;
+
+  void moveUp() {
+    switch (_alignment) {
+      case Alignment.topCenter:
+      case Alignment.topLeft:
+      case Alignment.topRight:
+        return;
+      case Alignment.center:
+        _alignment = Alignment.topCenter;
+        break;
+      case Alignment.bottomCenter:
+        _alignment = Alignment.center;
+        break;
+      case Alignment.centerRight:
+        _alignment = Alignment.topRight;
+        break;
+      case Alignment.bottomRight:
+        _alignment = Alignment.centerRight;
+        break;
+      case Alignment.centerLeft:
+        _alignment = Alignment.topLeft;
+        break;
+      case Alignment.bottomLeft:
+        _alignment = Alignment.centerLeft;
+        break;
+    }
+
+    notifyListeners();
+  }
+
+  void moveDown() {
+    switch (_alignment) {
+      case Alignment.bottomCenter:
+      case Alignment.bottomLeft:
+      case Alignment.bottomRight:
+        return;
+      case Alignment.center:
+        _alignment = Alignment.bottomCenter;
+        break;
+      case Alignment.topCenter:
+        _alignment = Alignment.center;
+        break;
+      case Alignment.topLeft:
+        _alignment = Alignment.centerLeft;
+        break;
+      case Alignment.topRight:
+        _alignment = Alignment.centerRight;
+        break;
+      case Alignment.centerRight:
+        _alignment = Alignment.bottomRight;
+        break;
+      case Alignment.centerLeft:
+        _alignment = Alignment.bottomLeft;
+        break;
+    }
+
+    notifyListeners();
+  }
+
+  void moveLeft() {
+    switch (_alignment) {
+      case Alignment.topLeft:
+      case Alignment.centerLeft:
+      case Alignment.bottomLeft:
+        return;
+      case Alignment.center:
+        _alignment = Alignment.centerLeft;
+        break;
+      case Alignment.topCenter:
+        _alignment = Alignment.topLeft;
+        break;
+      case Alignment.bottomCenter:
+        _alignment = Alignment.bottomLeft;
+        break;
+      case Alignment.topRight:
+        _alignment = Alignment.topCenter;
+        break;
+      case Alignment.centerRight:
+        _alignment = Alignment.center;
+        break;
+      case Alignment.bottomRight:
+        _alignment = Alignment.bottomCenter;
+        break;
+    }
+
+    notifyListeners();
+  }
+
+  void moveRight() {
+    switch (_alignment) {
+      case Alignment.topRight:
+      case Alignment.centerRight:
+      case Alignment.bottomRight:
+        return;
+      case Alignment.center:
+        _alignment = Alignment.centerRight;
+        break;
+      case Alignment.topCenter:
+        _alignment = Alignment.topRight;
+        break;
+      case Alignment.bottomCenter:
+        _alignment = Alignment.bottomRight;
+        break;
+      case Alignment.topLeft:
+        _alignment = Alignment.topCenter;
+        break;
+      case Alignment.centerLeft:
+        _alignment = Alignment.center;
+        break;
+      case Alignment.bottomLeft:
+        _alignment = Alignment.bottomCenter;
+        break;
+    }
+
+    notifyListeners();
+  }
 }
 
-class RectangleControllerState extends State<RectangleController> {
-  Alignment _alignment = Alignment.center;
+class CubePageWidget extends StatefulWidget {
+  const CubePageWidget({super.key});
 
-  void _moveUp() {
-    setState(() {
-      switch (_alignment) {
-        case Alignment.topCenter:
-        case Alignment.topLeft:
-        case Alignment.topRight:
-          return;
-        case Alignment.center:
-          _alignment = Alignment.topCenter;
-          break;
-        case Alignment.bottomCenter:
-          _alignment = Alignment.center;
-          break;
-        case Alignment.centerRight:
-          _alignment = Alignment.topRight;
-          break;
-        case Alignment.bottomRight:
-          _alignment = Alignment.centerRight;
-          break;
-        case Alignment.centerLeft:
-          _alignment = Alignment.topLeft;
-          break;
-        case Alignment.bottomLeft:
-          _alignment = Alignment.centerLeft;
-          break;
-      }
-    });
-  }
+  @override
+  CubePageWidgetState createState() => CubePageWidgetState();
+}
 
-  void _moveDown() {
-    setState(() {
-      switch (_alignment) {
-        case Alignment.bottomCenter:
-        case Alignment.bottomLeft:
-        case Alignment.bottomRight:
-          return;
-        case Alignment.center:
-          _alignment = Alignment.bottomCenter;
-          break;
-        case Alignment.topCenter:
-          _alignment = Alignment.center;
-          break;
-        case Alignment.topLeft:
-          _alignment = Alignment.centerLeft;
-          break;
-        case Alignment.topRight:
-          _alignment = Alignment.centerRight;
-          break;
-        case Alignment.centerRight:
-          _alignment = Alignment.bottomRight;
-          break;
-        case Alignment.centerLeft:
-          _alignment = Alignment.bottomLeft;
-          break;
-      }
-    });
-  }
-
-  void _moveLeft() {
-    setState(() {
-      switch (_alignment) {
-        case Alignment.topLeft:
-        case Alignment.centerLeft:
-        case Alignment.bottomLeft:
-          return;
-        case Alignment.center:
-          _alignment = Alignment.centerLeft;
-          break;
-        case Alignment.topCenter:
-          _alignment = Alignment.topLeft;
-          break;
-        case Alignment.bottomCenter:
-          _alignment = Alignment.bottomLeft;
-          break;
-        case Alignment.topRight:
-          _alignment = Alignment.topCenter;
-          break;
-        case Alignment.centerRight:
-          _alignment = Alignment.center;
-          break;
-        case Alignment.bottomRight:
-          _alignment = Alignment.bottomCenter;
-          break;
-      }
-    });
-  }
-
-  void _moveRight() {
-    setState(() {
-      switch (_alignment) {
-        case Alignment.topRight:
-        case Alignment.centerRight:
-        case Alignment.bottomRight:
-          return;
-        case Alignment.center:
-          _alignment = Alignment.centerRight;
-          break;
-        case Alignment.topCenter:
-          _alignment = Alignment.topRight;
-          break;
-        case Alignment.bottomCenter:
-          _alignment = Alignment.bottomRight;
-          break;
-        case Alignment.topLeft:
-          _alignment = Alignment.topCenter;
-          break;
-        case Alignment.centerLeft:
-          _alignment = Alignment.center;
-          break;
-        case Alignment.bottomLeft:
-          _alignment = Alignment.bottomCenter;
-          break;
-      }
-    });
-  }
+class CubePageWidgetState extends State<CubePageWidget> {
+  final _alignment = AlignmentNotifier(Alignment.center);
 
   @override
   Widget build(BuildContext context) {
@@ -136,17 +144,20 @@ class RectangleControllerState extends State<RectangleController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              child: RectangleWidget(
-                alignment: _alignment,
+            ListenableBuilder(
+              listenable: _alignment,
+              builder: (context, child) => Expanded(
+                child: CubeWidget(
+                  alignment: _alignment.alignment,
+                ),
               ),
             ),
             Expanded(
               child: Buttons(
-                onUp: _moveUp,
-                onDown: _moveDown,
-                onLeft: _moveLeft,
-                onRight: _moveRight,
+                onUp: _alignment.moveUp,
+                onDown: _alignment.moveDown,
+                onLeft: _alignment.moveLeft,
+                onRight: _alignment.moveRight,
               ),
             ),
           ],
@@ -156,8 +167,8 @@ class RectangleControllerState extends State<RectangleController> {
   }
 }
 
-class RectangleWidget extends StatelessWidget {
-  const RectangleWidget({super.key, required this.alignment});
+class CubeWidget extends StatelessWidget {
+  const CubeWidget({super.key, required this.alignment});
 
   final Alignment alignment;
 

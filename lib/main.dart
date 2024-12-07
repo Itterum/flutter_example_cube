@@ -1,6 +1,6 @@
+import 'package:demo_move_rectangle/cube_screen.dart';
 import 'package:demo_move_rectangle/form_screen.dart';
 import 'package:demo_move_rectangle/home_screen.dart';
-import 'package:demo_move_rectangle/cube_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const HomeScreen(),
-        '/cube': (context) => const RectangleController(),
+        '/cube': (context) => const CubePageWidget(),
         '/form': (context) => const FormScreen(),
       },
     );
