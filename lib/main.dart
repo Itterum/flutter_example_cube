@@ -1,5 +1,6 @@
-import 'package:demo_move_rectangle/cube_screen.dart';
-import 'package:demo_move_rectangle/form_screen.dart';
+import 'package:demo_move_rectangle/cube/bloc/cube_screen.dart';
+// import 'package:demo_move_rectangle/cube/change_notifier/cube_screen.dart';
+import 'package:demo_move_rectangle/form/form_screen.dart';
 import 'package:demo_move_rectangle/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const HomeScreen(),
-        '/cube': (context) => const CubePageWidget(),
+        '/cube': (context) => const CubeScreen(),
         '/form': (context) => const FormScreen(),
       },
     );
