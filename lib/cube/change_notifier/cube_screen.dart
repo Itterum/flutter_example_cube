@@ -1,5 +1,5 @@
 import 'package:demo_move_rectangle/base_scaffold.dart';
-import 'package:demo_move_rectangle/buttons_widget.dart';
+import 'package:demo_move_rectangle/cube/change_notifier/buttons_widget.dart';
 import 'package:flutter/material.dart';
 
 class AlignmentNotifier extends ChangeNotifier {
